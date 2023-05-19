@@ -1,0 +1,34 @@
+.nav{
+    justify-content: space-between;
+    width: 400px;
+  }
+
+  .img-nav{
+    background-image: url("../../public/logo192.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 5%;
+  }
+  
+  .nav-border{
+    border-bottom: solid red 2px;
+    height: 7vh;
+  }
+  .active {
+    color: rgb(255, 61, 61);
+    text-decoration: none;
+  }
+  .active:hover{
+    color: rgb(255, 165, 165);
+  }
+  .not-active {
+    color: white;
+    text-decoration: none;
+  }
+  .not-active:hover{
+    color: rgb(255, 165, 165);
+  }
+
+  .i{
+    color: white;
+  }

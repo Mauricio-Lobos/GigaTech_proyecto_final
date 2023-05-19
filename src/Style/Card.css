@@ -1,0 +1,26 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 50px;
+}
+.card{
+    background-color: #92459b9f;
+    color: white;
+    border-radius: 10px;
+    align-items: center;
+}
+.body-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.card img{
+    padding-top: 10px;
+    height: 200px;
+    width: 200px;
+}
+.btns{
+    display: flex;
+    justify-content: space-evenly;
+}
