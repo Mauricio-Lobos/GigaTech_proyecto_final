@@ -1,0 +1,74 @@
+[
+  {
+    "desc": "Este computador combina un potente procesador Intel Core i5, una amplia cantidad de memoria RAM, un almacenamiento versátil y una tarjeta gráfica de alto rendimiento. Ya sea que estés jugando, trabajando o creando contenido multimedia, este equipo está diseñado para ofrecer un rendimiento excepcional en todas tus actividades.",
+    "id": "C001",
+    "img": "https://raptorgaming.cl/wp-content/uploads/2023/01/1597138037.png",
+    "components": ["Procesador: Intel core i5-11400", "Memoria RAM: 16GB (8 Gb x2)", "Disco duro: HDD 1TB", "Disco sólido: SSD NVMe 480GB", "Gráficos: GTX 1660Ti 6GB", "Placa madre: H510M-E Prime", "Fuente de poder: 500W 80 Plus Bronce"],
+    "name": "Computador gamer intel Core i5-11400",
+    "price": 730000
+  },
+  {
+    "desc": "Este computador ofrece un rendimiento sólido y eficiente gracias al procesador AMD Ryzen 3 3200G, una cantidad generosa de memoria RAM, almacenamiento rápido y una tarjeta gráfica integrada Radeon Vega 8. Ya sea que estés trabajando, estudiando o entreteniéndote, este equipo está listo para cumplir con tus necesidades informáticas.",
+    "id": "C002",
+    "img": "https://www.playfactory.cl/wp-content/uploads/2023/02/1-6.png",
+    "components": ["Procesador: AMD Ryzen 3 3200G", "Memoria RAM: 16GB (8 Gb x2)", "Disco duro: ---", "Disco sólido: SSD NVMe 480GB", "Gráficos: Radeon vega 8", "Placa madre: A320M", "Fuente de poder: 450W 80 Plus Bronce"],
+    "name": "Computador gamer AMD Ryzen 3 3200G",
+    "price": 430000
+  },
+  {
+    "desc": "Este computador ofrece un rendimiento sólido y eficiente con el procesador Intel Core i5-10400F, una cantidad suficiente de memoria RAM, un almacenamiento rápido y una tarjeta gráfica GTX 1650 4GB. Ya sea que estés trabajando, estudiando o disfrutando de juegos y multimedia, este equipo está preparado para ofrecerte una experiencia informática satisfactoria.",
+    "id": "C003",
+    "img": "https://cdn.shopify.com/s/files/1/0437/8358/5942/products/51136ca4-14b8-4252-9fee-91a606bdaf65_800x.png?v=1684251568",
+    "components": ["Procesador: Intel core i5-10400F", "Memoria RAM: 8GB (8GB x1)", "Disco duro: ---", "Disco sólido: SSD NVMe 480GB", "Gráficos: GTX 1650 4GB", "Placa madre: H510M-H", "Fuente de poder: 500W 80 Plus"],
+    "name": "Computador gamer intel Core i5-10400F",
+    "price": 590000
+  },
+  {
+    "desc": "El Notebook Gamer Acer AN515-54TP-1 es una potente máquina diseñada para los entusiastas de los juegos. Con su rendimiento excepcional, gráficos envolventes, pantalla vibrante y almacenamiento amplio, podrás disfrutar de una experiencia de juego emocionante y sin interrupciones.",
+    "id": "C004",
+    "img": "https://newark.cl/up/2022/05/nitro5_an515-57_bl_bk_modelmain.png",
+    "components": ["Procesador:  Intel Core i5-11400H", "Memoria RAM: 16Gb (8Gb x2)", "Disco duro: 1TB", "Disco sólido: SDD NVMe 128GB", "Gráficos: GTX 1650 4GB"],
+    "name": "Notebook gamer Acer AN515-54TP-1",
+    "price": 850000
+  },
+  {
+    "desc": "el Notebook Gamer HP Pavilion 15-dk1056wm es una potente máquina diseñada para brindarte una experiencia de juego emocionante. Con su rendimiento excepcional, gráficos envolventes y pantalla vibrante, podrás sumergirte en tus juegos favoritos y disfrutar de un rendimiento de primer nivel.",
+    "id": "C005",
+    "img": "https://fichashppervasive.blob.core.windows.net/imagenes/2B122LA_1.png",
+    "components": ["Procesador:  Intel Core i5-10300H", "Memoria RAM: 8Gb (8Gb x1)", "Disco duro: ---", "Disco sólido: SDD NVMe 256GB", "Gráficos: GTX 1650 4GB"],
+    "name": "Notebook gamer HP Pavilion 15-dk1056wm",
+    "price": 650000
+  },
+  {
+    "desc": "Computador de élite con un rendimiento excepcional y potencia sin límites; este computador de élite ofrece un rendimiento excepcional con el procesador Ryzen 7 5800X, una generosa cantidad de memoria RAM, un almacenamiento ultrarrápido, una tarjeta gráfica RTX 3070 Ti y una placa madre de alta calidad. Si buscas la excelencia en el rendimiento y la potencia, este equipo satisfará todas tus necesidades informáticas más exigentes. ",
+    "id": "C006",
+    "img": "https://cdnx.jumpseller.com/bitgame/image/33037606/resize/540/540?1678483903",
+    "components": ["Procesador: Ryzen 7 5800X", "Memoria RAM: 16Gb (8Gb x2)", "Disco duro: ---", "Disco sólido: SDD M.2 1TB", "Gráficos: RTX 3070 Ti Gaming OC 8GB", "Placa madre: Gigabyte X570", "Fuente de poder: 750W 80 Plus Bronce"],
+    "name": "Computador gamer AMD Ryzen 7 5800x",
+    "price": 1700000
+  },
+  {
+    "desc": "Este computador ofrece un rendimiento potente y eficiente con el procesador Ryzen 5 5500, una cantidad adecuada de memoria RAM, almacenamiento ultrarrápido, una tarjeta gráfica RTX 3060 y una placa madre confiable. Ya sea que estés trabajando, jugando o creando contenido, este equipo está diseñado para cumplir con tus necesidades informáticas más exigentes.",
+    "id": "C007",
+    "img": "https://tienda.pc-gamer.cl/images/64e2488b823ea37bc560ca297c92f403.webp",
+    "components": ["Procesador: Ryzen 5 5500", "Memoria RAM: 8Gb (8Gb x1)", "Disco duro: ---", "Disco sólido: SDD NVMe 1TB", "Gráficos: RTX 3060 8GB", "Placa madre: A520M", "Fuente de poder: 750W 80 Plus Bronce"],
+    "name": "Computador gamer AMD Ryzen 5 5500",
+    "price": 910000
+  },
+  {
+    "desc": "Lleva la Asus TUF Dash fácilmente a cualquier lugar gracias a su cuerpo delgado de 2,07cm de grosor y liviano, con un peso de solo 2Kg. La pantalla de la TUF F15 brinda una grata experiencia en videojuegos, soportando un tasa de refresco de 144Hz y con tecnología Adaptive Sync. Juega, transmite y crea como un profesional con la ultima generación de procesadores de Intel.",
+    "id": "C008",
+    "img": "https://dlcdnwebimgs.asus.com/gain/7e253a39-8b45-47cd-83d0-208eef4756af/",
+    "components": ["Procesador: Intel Core i5-12450H", "Memoria RAM: 8Gb (8Gb x1) expandible a 32Gb", "Disco duro: ---", "Disco sólido: SDD M.2 512GB", "Gráficos: RTX 3060 6GB"],
+    "name": "Notebook gamer TUF FX517Z",
+    "price": 1050000
+  },
+  {
+    "desc": "Este computador ofrece un rendimiento excepcional, almacenamiento versátil y gráficos potentes. Ya sea que estés trabajando en tareas exigentes, disfrutando de juegos de alta calidad o realizando proyectos creativos, este equipo está listo para superar tus expectativas.",
+    "id": "C009",
+    "img": "https://cdnx.jumpseller.com/yasitcomputer/image/33972150/resize/610/610?1680876691",
+    "components": ["Procesador: Intel Core i7-9700KF", "Memoria RAM 16Gb (8Gb x2)", "HDD 1TB", "SSD NVMe 240GB", "Gráficos: GTX 1660 super 6GB", "Placa madre: PRIME B365M-A", "Fuente de poder: 650W 80 Plus Bronce"],
+    "name": "Computador gamer intel i7-9700KF",
+    "price": 1300000
+  }
+]

@@ -1,0 +1,39 @@
+.title{
+    padding-bottom: 10px;
+}
+.card-details{
+    display: flex;
+    padding-right: 20px;
+    font-size: 18px;
+}
+
+.card-details img{
+    width: 300px;
+    height: 300px;
+    border: solid 1px black;
+    background-color: azure;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(46, 0, 34, 0.966);
+}
+
+.body-details{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.price-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.price-div span{
+    font-size: 24px;
+    padding-left: 10px;
+}
+
+.btn-details{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}

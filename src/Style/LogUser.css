@@ -1,0 +1,35 @@
+.background{
+    background-image: url("https://i.pinimg.com/originals/b3/26/51/b326517cd8ca44b939a1bee41a7f103c.gif");
+    background-position: center;
+    background-size: cover;
+}
+.container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 93vh;
+}
+
+.card-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: solid 2px black;
+    width: 60vh;
+    height: 70vh;
+    background-color: white;
+    border-radius: 5%;
+    padding-bottom: 0px;
+}
+
+.email-password{
+    width: 90%;
+}
+
+.name-validation{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 90%;
+}
