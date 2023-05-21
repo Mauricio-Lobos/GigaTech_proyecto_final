@@ -5,9 +5,10 @@ import { Context } from '../Context/Provider';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import "../Style/Card.css";
+import ToCLP from '../helpers/ToCLP';
 
 export default function CardProduct() {
-    const { product } = useContext(Context);
+    const { product, addToCart, arrayProducts, setCalculatedPrice } = useContext(Context);
 
     return (
         <div className='grid'>
@@ -17,10 +18,10 @@ export default function CardProduct() {
                     <Card.Body className='body-card'>
                         <Card.Title>{product.name}</Card.Title>
                         <Card.Text>
-                            Valor ${product.price}
+                            Valor: ${ToCLP(product.price)}
                         </Card.Text>
                         <div className='btns'>
-                            <Button variant="danger">Agregar al carro</Button>
+                            <Button variant="danger" onClick={() => { addToCart(product.id); setCalculatedPrice(arrayProducts(product.id)) }}>Agregar al carro</Button>
                             <Link to={`/product/${product.id}`}>
                                 <Button variant='danger'> Ver detalles</Button>
                             </Link>
