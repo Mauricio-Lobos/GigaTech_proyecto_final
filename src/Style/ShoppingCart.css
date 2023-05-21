@@ -1,22 +1,26 @@
 .cart-body{
     background-color: #80649177;
     height: 93vh;
+    overflow-y: auto;
 }
 .cart-contain{
-    padding: 10px; 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    
+    margin: 30px;
+    background-color: rgba(209, 209, 209, 0.418);
 }
 .object-cart{
-    border: solid 1px black;
-    padding: 5px;
-    background-color: rgba(255, 255, 255, 0.911);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 78px;
+    border-bottom: solid 1px black;
 }
 .pay-cart{
     display: flex;
-    padding: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
     align-items: center;
     justify-content: space-between;
 }
@@ -25,3 +29,53 @@
     padding: 10px;
     padding-bottom: 0px;
 }
+
+.name-and-price{
+    display: flex;
+    align-items: center;
+    width: 75%;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.name-and-price p{
+    margin: 0;
+
+}
+
+.img-cart{
+    padding: 20px;
+    width: 110px;
+  }
+  
+  .btn-cart{
+    display: flex;
+    width: 100px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .remove-btn{
+    width: 40%;
+    height: 35px;
+    border-radius: 5px;
+  }
+
+  .plus-btn{
+    width: 40%;
+    height: 35px;
+    border-radius: 5px;
+  }
+
+  #count{
+    margin: auto 0;
+  }
+
+  .price-each{
+    color: rgb(55, 0, 255);
+  }
+
+  .final-price{
+    font-size: 25px;
+    color: rgb(8, 117, 26);
+  }
