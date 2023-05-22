@@ -7,6 +7,9 @@ export function Provider({ children }) {
   const [cart, setCart] = useState([]);
   const [values, setValues] = useState([]);
   const [calculatedPrice, setCalculatedPrice] = useState(0);
+  const [sortOrder, setSortOrder] = useState('');
+  const [products, setProducts] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
 
   const getData = async () => {
     const res = await fetch("/computadores.json");
@@ -67,6 +70,19 @@ export function Provider({ children }) {
     getData();
   }, []);
 
+  const sortProducts = (sortValue) => {
+    let sortedProducts = [];
+
+    if (sortValue === 'price-lowest') {
+      sortedProducts = [...products].sort((a, b) => a.price - b.price);
+    } else if (sortValue === 'price-highest') {
+      sortedProducts = [...products].sort((a, b) => b.price - a.price);
+    }
+
+    setProducts(sortedProducts);
+    setSortOrder(sortValue);
+  };
+
   const globalState = {
     product,
     cart,
@@ -78,6 +94,10 @@ export function Provider({ children }) {
     setCalculatedPrice,
     values,
     orderedCartProducts,
+    sortProducts,
+    sortOrder,
+    searchValue,
+    setSearchValue
   };
   
   return (
