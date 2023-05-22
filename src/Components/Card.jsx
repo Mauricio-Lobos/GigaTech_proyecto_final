@@ -8,11 +8,18 @@ import "../Style/Card.css";
 import ToCLP from '../helpers/ToCLP';
 
 export default function CardProduct() {
-    const { product, addToCart, arrayProducts, setCalculatedPrice } = useContext(Context);
+    const { product, sortOrder, addToCart, arrayProducts, setCalculatedPrice } = useContext(Context);
+
+    const sortedProduct = sortOrder ? [...product] : product;
+    if (sortOrder === 'price-lowest') {
+      sortedProduct.sort((a, b) => a.price - b.price);
+    } else if (sortOrder === 'price-highest') {
+      sortedProduct.sort((a, b) => b.price - a.price);
+    }
 
     return (
         <div className='grid'>
-            {product.map((product) => (
+            {sortedProduct.map((product) => (
                 <Card key={product.id} className='card'>
                     <Card.Img variant="top" src={product.img} />
                     <Card.Body className='body-card'>
