@@ -5,11 +5,16 @@ import { useContext } from 'react';
 import { Context } from '../Context/Provider';
 
 export default function Home() {
-    const { sortProducts } = useContext(Context);
+    const { sortProducts, searchValue, setSearchValue } = useContext(Context);
 
     const handleSortChange = (e) => {
         const sortValue = e.target.value;
         sortProducts(sortValue);
+    };
+
+    const handleSearchChange = (e) => {
+        const value = e.target.value;
+        setSearchValue(value);
     };
 
     const datesValidation = (e) => {
@@ -26,7 +31,7 @@ export default function Home() {
                         <option value="price-lowest">Precio menor a mayor</option>
                         <option value="price-highest">Precio mayor a menor</option>
                     </Form.Select>
-                    <Form.Control placeholder="Buscar" />
+                    <Form.Control placeholder="Buscar" value={searchValue} onChange={handleSearchChange} />
                 </form>
                 <hr />
                 <CardProduct />

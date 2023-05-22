@@ -9,6 +9,7 @@ export function Provider({ children }) {
   const [calculatedPrice, setCalculatedPrice] = useState(0);
   const [sortOrder, setSortOrder] = useState('');
   const [products, setProducts] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
 
   const getData = async () => {
     const res = await fetch("/computadores.json");
@@ -95,6 +96,8 @@ export function Provider({ children }) {
     orderedCartProducts,
     sortProducts,
     sortOrder,
+    searchValue,
+    setSearchValue
   };
   
   return (
