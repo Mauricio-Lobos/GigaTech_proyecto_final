@@ -13,12 +13,14 @@ export default function Profile() {
     const [lastname, setLastname] = useState("")
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [profileImage, setProfileImage] = useState("");
 
     useEffect(() => {
         setName(user.name);
         setLastname(user.lastname);
         setEmail(user.email);
         setPassword(user.password);
+        setProfileImage(user.profileImage)
     }, []);
 
     const handleSubmit = (e) => {
@@ -30,6 +32,7 @@ export default function Profile() {
             lastname: lastname,
             password: password,
             id: user.id,
+            profileImage: profileImage,
         });
 
         Swal.fire("Datos actualizados");
@@ -45,7 +48,7 @@ export default function Profile() {
                     <Form onSubmit={handleSubmit}>
                         <h1 className="title-center">Mi perfil</h1>
                         <div className="card-profile">
-                            <img className="img-profile" src="https://static.vecteezy.com/system/resources/previews/013/516/935/original/man-person-character-avatar-png.png" alt="" />
+                            <img className="img-profile" src={user.profileImage ? profileImage : "https://static.vecteezy.com/system/resources/previews/013/516/935/original/man-person-character-avatar-png.png" } alt="" />
                             <div className="flex-data">
                                 <h3>{name} {lastname}</h3>
                                 <hr />

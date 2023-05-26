@@ -1,0 +1,20 @@
+    .form-cp {
+        display: flex;
+        padding: 20px;
+        width: 90%;
+        margin: 5%;
+        flex-direction: column;
+    }
+
+    .cp-btn{
+        display: flex;
+        padding-top: 20px;
+        justify-content: space-between;
+    }
+
+    .btn-outline-primary{
+        margin-right: 5px;
+    }
+    .btn-outline-danger{
+        margin-left: 5px;
+    }

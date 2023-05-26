@@ -1,13 +1,25 @@
-.nav{
-    justify-content: space-between;
-    width: 400px;
-  }
 
   .img-nav{
     background-image: url("../../public/logo192.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 5%;
+  }
+
+  .navbar-nav{
+    align-items: center;
+  }
+  .navbar-collapse{
+    justify-content: end;
+  }
+
+  .navbar-collapse a{
+    padding-left: 20px;
+  }
+
+  .navbar-collapse button{
+    margin-left: 20px;
+
   }
   
   .nav-border{
@@ -29,6 +41,27 @@
     color: rgb(255, 165, 165);
   }
 
-  .i{
-    color: white;
+  @media (max-width: 991px) {
+    .navbar-collapse {
+      justify-content: flex-end;
+      background-color: #212529;
+      height: 200px;
+    }
+    .navbar-nav{
+      align-content: center;
+      margin-top: 10px;
+    }
+
+    .navbar-nav a{
+      background-color: #212529;
+      text-align: center;
+      padding-bottom: 10px;
+    }
   }
+
+  @media (max-width: 991px) {
+    .cart-icon{
+      width: 30px;
+    }
+  }
+ 
