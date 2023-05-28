@@ -1,10 +1,7 @@
 
-  .img-nav{
-    background-image: url("../../public/logo192.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 5%;
-  }
+.img-navbar{
+  max-width: 80px;
+}
 
   .navbar-nav{
     align-items: center;
@@ -45,7 +42,7 @@
     .navbar-collapse {
       justify-content: flex-end;
       background-color: #212529;
-      height: 200px;
+      height: 290px;
     }
     .navbar-nav{
       align-content: center;
@@ -57,11 +54,13 @@
       text-align: center;
       padding-bottom: 10px;
     }
-  }
-
-  @media (max-width: 991px) {
     .cart-icon{
       width: 30px;
-    }
   }
- 
+  .img-navbar{
+    max-width: 60px;
+  }
+  .navbar-brand{
+    padding: 0;
+  }
+}

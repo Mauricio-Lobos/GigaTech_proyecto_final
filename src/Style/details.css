@@ -46,6 +46,16 @@
     width: 100%;
 }
 
+#error-product{
+    display: flex;
+    flex-direction: column;
+    background-color: #58195f70;
+    align-items: center;
+    height: 85vh;
+    text-align: center;
+    padding: 20px;
+}
+
 @media (max-width: 576px) {
     .card-details{
         display: flex;

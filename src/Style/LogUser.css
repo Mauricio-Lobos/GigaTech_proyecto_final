@@ -33,3 +33,35 @@
     gap: 10px;
     width: 90%;
 }
+
+.validates-data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.title-login{
+    padding-top: 10px;
+}
+@media (max-width:578px){
+    .container-login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-login {
+        border: solid 2px black;
+        width: 80%;
+        
+        background-color: white;
+        border-radius: 5%;
+        padding-bottom: 0px;
+    }
+}

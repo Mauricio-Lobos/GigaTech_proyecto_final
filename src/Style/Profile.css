@@ -6,7 +6,14 @@
             "aside  main";
         grid-template-columns: 1fr 5fr;
     }
-    
+
+    .link-profile{
+        display: flex;
+        flex-direction: column;
+        height: 28%;
+        justify-content: space-around;
+      }
+
     .nav-profile{
         grid-area: aside;
         display: flex;
@@ -15,7 +22,6 @@
         background-color: black;
         padding-left: 20px;
         height: 93vh;
-        
     }
     .main-profile{
         grid-area: main;
@@ -46,18 +52,19 @@
     }
 }
 
-@media (max-width: 992px){
+@media (max-width:992px){
     .nav-profile{
         background-color: black;
         padding: 20px;
     }
 
     .link-profile{
-        flex-direction: row;
+        display: flex;
+        justify-content: space-around;
     }
     .link-profile a{
         margin-left: 10px;
-        font-size: 12px;
+
     }
 
     .card-profile{
@@ -78,10 +85,9 @@
 
     .img-profile{
         width: 70%;
-        height: 100%;
+        max-height: 300px;
         margin: 0 auto;
         border: solid 1px black;
         background-color: azure;
     }
 }
-

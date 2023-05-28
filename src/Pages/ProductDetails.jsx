@@ -1,44 +1,104 @@
 import React, { useContext } from 'react';
-import { useParams } from "react-router-dom";
-import Button from "react-bootstrap/esm/Button";
-import "../Style/details.css"
+import { useParams, Link } from 'react-router-dom';
+import Button from 'react-bootstrap/esm/Button';
+import '../Style/details.css';
 import { Context } from '../Context/Provider';
 
-
 export default function ProductDetails() {
-    const { product, addToCart, arrayProducts, setCalculatedPrice, favorites, addFavorites } = useContext(Context);
-    const params = useParams();
-    const getProductById = (id) => product.find((product) => product.id === id);
-    const products = getProductById(params.id);
+  const { user, products, addToCart, favorites, addFavorites, setCalculatedPrice, arrayProducts } = useContext(Context);
+  const params = useParams();
+  const getProductById = (id) => products.find((product) => product.id === id);
+  const product = getProductById(params.id);
 
-    return (
-        <>
-            <div className="view-details">
-                <h2 className="title"><b>{products.name}</b></h2>
-                <div className="card-details">
-                    <img src={products.img} alt="" />
-                    <div className="body-details">
-                        <p>{products.desc}</p>
-                        <hr />
-                        <ul>
-                            {products.components.map((components) => (
-                                <div key={components}>
-                                    <li>{components}</li>
-                                </div>
+  let userProducts = null;
+  if (user) {
+    userProducts = products.find((product) => product.user === user.email);
+  }
 
-                            ))}
-                        </ul>
-                        <hr />
-                        <div className="price-div">
-                            <span>Valor: <b>${products.price}</b></span>
-                            <div className="btn-details">
-                                <Button onClick={() => { addToCart(products.id); setCalculatedPrice(arrayProducts(products.id)) }}> Añadir al carro </Button>
-                                <Button onClick={() => addFavorites(products)} disabled={favorites.some((item) => item.id === products.id)} variant="warning"> Añadir a favoritos  ❤️</Button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <>
+      {product ? (
+        <div className="view-details">
+          <h2 className="title">
+            <b>{product.name}</b>
+          </h2>
+          <div className="card-details">
+            <img src={product.img} alt="" />
+            <div className="body-details">
+              <p>{product.desc}</p>
+              <hr />
+              <ul>
+                {product.components.map((component, index) => (
+                  <li key={index}>{component}</li>
+                ))}
+              </ul>
+              <hr />
+              <div className="price-div">
+                <span>
+                  Valor: <b>${product.price}</b>
+                </span>
+                {user && (
+                  <div className="btn-details">
+                    <Button onClick={() => { addToCart(product.id); setCalculatedPrice(arrayProducts(product.id)) }}> Añadir al carro </Button>
+                    <Button
+                      onClick={() => addFavorites(product)}
+                      disabled={favorites.some((item) => item.id === product.id)}
+                      variant="warning"
+                    >
+                      Añadir a favoritos ❤️
+                    </Button>
+                  </div>
+                )}
+              </div>
             </div>
-        </>
-    )
+          </div>
+        </div>
+      ) : userProducts ? (
+        <div className="view-details">
+          <h2 className="title">
+            <b>{userProducts.name}</b>
+          </h2>
+          <div className="card-details">
+            <img src={userProducts.img} alt="" />
+            <div className="body-details">
+              <p>{userProducts.desc}</p>
+              <hr />
+              <ul>
+                {userProducts.components.map((component, index) => (
+                  <li key={index}>{component}</li>
+                ))}
+              </ul>
+              <hr />
+              <div className="price-div">
+                <span>
+                  Valor: <b>${userProducts.price}</b>
+                </span>
+                {user && (
+                  <div className="btn-details">
+                    <Button onClick={() => { addToCart(userProducts.id); setCalculatedPrice(arrayProducts(userProducts.id)) }}>
+                      Añadir al carro
+                    </Button>
+                    <Button
+                      onClick={() => addFavorites(userProducts)}
+                      disabled={favorites.some((item) => item.id === userProducts.id)}
+                      variant="warning"
+                    >
+                      Añadir a favoritos 
+                    </Button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div id='error-product'>
+          <h1 >no se encontraron productos 😟</h1>
+          <Link to={"/"}>
+            <Button id='btn-error'>Seguir navegando</Button>
+          </Link>
+        </div>
+      )}
+    </>
+  );
 }

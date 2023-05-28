@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -35,12 +36,6 @@ main{
 
 .search input{
   width: 48%;
-}
-.link-profile{
-  display: flex;
-  flex-direction: column;
-  height: 28%;
-  justify-content: space-around;
 }
 
 .title-center{

@@ -5,32 +5,28 @@ import { Context } from "../Context/Provider";
 import ToCLP from "../helpers/ToCLP"
 
 export default function Cart() {
-    const { setCart, addToCart, removeToCart, arrayProducts, calculatedPrice, setCalculatedPrice, orderedCartProducts } = useContext(Context);
+    const { setCart, addToCart, removeToCart, arrayProducts, calculatedPrice, setCalculatedPrice, orderedCartProducts, products } = useContext(Context);
 
     let list = []
-    let count = 1
 
     const listOforderedProducts = () => {
-        for (let i = 0; i < orderedCartProducts.length; i++) {
-            let index = orderedCartProducts[i];
-
-            if (index === orderedCartProducts[i + 1]) {
-                count++
-            }
-            else {
-                const newList = {
-                    id: index.id,
-                    name: index.name,
-                    price: index.price,
-                    img: index.img,
-                    count: count,
-                    result: count * index.price
-                }
-                list.push(newList)
-                count = 1
-            }
-        }
-    }
+        const cartProducts = [];
+    
+        orderedCartProducts.forEach((product) => {
+          const existingProduct = cartProducts.find((p) => p.id === product.id);
+    
+          if (existingProduct) {
+            existingProduct.count++;
+          } else {
+            cartProducts.push({ ...product, count: 1 });
+          }
+        });
+    
+        list = cartProducts.map((product) => ({
+          ...product,
+          result: product.count * product.price
+        }));
+      };
 
     listOforderedProducts();
 
@@ -38,10 +34,23 @@ export default function Cart() {
         setCart(orderedCartProducts);
     }, [orderedCartProducts, setCart]);
 
+    const calculateTotalPrice = () => {
+        const totalPrice = list.reduce((sum, item) => {
+            const product = products.find((p) => p.id === item.id);
+            if (product) {
+                return sum + product.price * item.count;
+            }
+            return sum;
+        }, 0);
+        return totalPrice;
+    };
+
+    const totalPrice = calculateTotalPrice();
+
 
     return (
         <div className="cart-body">
-            <h3 id="title-cart"><b>Detalle del pedido:</b></h3>
+            <h3 className="title-center"><b>Detalle del pedido</b></h3>
             <div className='cart-contain'>
                 {list.length === 0 ? (
                     <div className="object-cart">
@@ -49,28 +58,30 @@ export default function Cart() {
                     </div>
                 ) : (
                     list.map((item) =>
-                        <div className='cart-contain'>
+                        <div className='cart-with-contain'>
                             <div className="object-cart" key={item.id}>
                                 <img className='img-cart' src={item.img} alt="" />
-                                <div className="name-and-price">
-                                    <p>{item.name}</p>
-                                    <p className="price-each">${ToCLP(item.result)}</p>
-                                </div>
-                                <div className='btn-cart' >
-                                    <Button 
-                                    variant="danger"
-                                    className='remove-btn' onClick={() => { removeToCart(item.id) }}> - </Button>
-                                    <p id="count"><b>{item.count}</b></p>
-                                    <Button variant="success"
-                                    className='plus-btn' onClick={() => { addToCart(item.id); setCalculatedPrice(arrayProducts(item.id)) }}> + </Button>
+                                <div className="text-and-btns">
+                                    <div className="name-and-price">
+                                        <p>{item.name}</p>
+                                        <p className="price-each">${ToCLP(item.result)}</p>
+                                    </div>
+                                    <div className='btn-cart' >
+                                        <Button
+                                            variant="danger"
+                                            className='remove-btn' onClick={() => { removeToCart(item.id) }}> - </Button>
+                                        <p id="count"><b>{item.count}</b></p>
+                                        <Button variant="success"
+                                            className='plus-btn' onClick={() => { addToCart(item.id); setCalculatedPrice(arrayProducts(item.id)) }}> + </Button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     )
                 )}
                 <div className="pay-cart">
-                    <span className="final-price">Total: ${ToCLP(calculatedPrice)}</span>
-                    <Button>Ir a pagar</Button>
+                    <span className="final-price">Total: ${ToCLP(totalPrice)}</span>
+                    <Button id="btn-pay">Ir a pagar</Button>
                 </div>
             </div>
         </div>

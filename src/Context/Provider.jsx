@@ -4,23 +4,26 @@ export const Context = createContext();
 
 export function Provider({ children }) {
 
+  const initialProductState = localStorage.getItem("products")
+  ? JSON.parse(localStorage.getItem("products"))
+  : [];
+
   // ------ Data for add products to shopping cart ------
-  const [product, setProduct] = useState([]);
   const [cart, setCart] = useState([]);
   const [values, setValues] = useState([]);
   const [calculatedPrice, setCalculatedPrice] = useState(0);
   const [sortOrder, setSortOrder] = useState('');
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(initialProductState);
   const [searchValue, setSearchValue] = useState('');
 
   // ------ UserConfiguration ------
   const initialStateUser = localStorage.getItem("user")
-  ? JSON.parse(localStorage.getItem("user"))
-  : null;
+    ? JSON.parse(localStorage.getItem("user"))
+    : null;
 
 const initialStateUsers = localStorage.getItem("users")
   ? JSON.parse(localStorage.getItem("users"))
-  : [];
+  : null;
   const [users, setUsers] = useState(initialStateUsers);
   const [user, setUser] = useState(initialStateUser);
   const [userError, setUserError] = useState(false);
@@ -30,13 +33,12 @@ const initialStateUsers = localStorage.getItem("users")
 
   //---- Favorites ----
   const [favorites, setFavorites] = useState([]);
-  
 
   // ---- Product functionality ----
   const getData = async () => {
     const res = await fetch("/computadores.json");
     const data = await res.json();
-    setProduct(data);
+    setProducts(data);
   }
 
   const orderedCartProducts = cart.sort(function (a, b) {
@@ -50,8 +52,8 @@ const initialStateUsers = localStorage.getItem("users")
   });
 
   const addToCart = (id) => {
-    const products = product.find((product) => product.id === id);
-    setCart((prevCart) => [...prevCart, products]);
+    const productToAdd = products.find((product) => product.id === id);
+    setCart((prevCart) => [...prevCart, productToAdd]);
   };
 
   const removeToCart = (id) => {
@@ -79,7 +81,7 @@ const initialStateUsers = localStorage.getItem("users")
   }
 
   const arrayProducts = (id) => {
-    const filteredProduct = product.find(product => product.id === id);
+    const filteredProduct = products.find(product => product.id === id);
     const price = filteredProduct.price;
     values.push(price)
     setCalculatedPrice(calculatedPrice + price);
@@ -93,13 +95,16 @@ const initialStateUsers = localStorage.getItem("users")
 
   // ---- OrderProducts ----
   const sortProducts = (sortValue) => {
-    let sortedProducts = [];
+    let sortedProducts = [...products];
 
     if (sortValue === 'price-lowest') {
-      sortedProducts = [...products].sort((a, b) => a.price - b.price);
+      sortedProducts.sort((a, b) => a.price - b.price);
     } else if (sortValue === 'price-highest') {
-      sortedProducts = [...products].sort((a, b) => b.price - a.price);
+      sortedProducts.sort((a, b) => b.price - a.price);
+    } else if (sortValue === 'id') {
+      sortedProducts.sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
     }
+
     setProducts(sortedProducts);
     setSortOrder(sortValue);
   };
@@ -108,7 +113,6 @@ const initialStateUsers = localStorage.getItem("users")
   const getUsers = async () => {
     const res = await fetch("users.json");
     const users = await res.json();
-    console.log("usuarios: ",users)
     return users;
   };
 
@@ -118,10 +122,11 @@ const initialStateUsers = localStorage.getItem("users")
       (item) => item.email === email && password === item.password
     );
     if (userDB) {
-      console.log("DB: ", userDB)
       setUser(userDB);
+      localStorage.setItem("user", JSON.stringify(userDB));
     } else {
       setUser(null);
+      localStorage.removeItem("user");
     }
 
     return userDB;
@@ -136,7 +141,7 @@ const initialStateUsers = localStorage.getItem("users")
     const userDB = users.find((item) => item.email === user.email);
     if (userDB) return userDB;
     setUser(user);
-    console.log("registrado: ", user);
+    localStorage.setItem("user", JSON.stringify(user));
     setUsers([...users, user]);
   };
 
@@ -154,11 +159,11 @@ const initialStateUsers = localStorage.getItem("users")
   }, [users]);
 
   useEffect(() => {
-    if (users.length === 0) {
-      getUsers();
-    }
-    // eslint-disable-next-line
-  }, []);
+  if (users === null || users.length === 0) {
+    getUsers();
+  }
+  // eslint-disable-next-line
+}, []);
 
   useEffect(() => {
     if (user) {
@@ -176,8 +181,38 @@ const initialStateUsers = localStorage.getItem("users")
     setFavorites(newFavorites);
   };
 
+  // ---- add and update seller's products
+  const getProduct = (id) => {
+    return products.find((product) => product.id === id);
+  };
+
+  const createProduct = (product) => {
+    setProducts([product, ...products]);
+    return product;
+  };
+
+  const deleteProduct = (id) => {
+    const newProducts = products.filter((product) => product.id !== id);
+    setProducts(newProducts);
+  };
+
+  const updateProduct = (newProduct) => {
+    const newProducts = products.map((product) => {
+      if (product.id === newProduct.id) {
+        return newProduct;
+      }
+      return product;
+    });
+
+    setProducts(newProducts);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("products", JSON.stringify(products));
+  }, [products]);
+
   const globalState = {
-    product,
+    products,
     cart,
     setCart,
     addToCart,
@@ -207,9 +242,15 @@ const initialStateUsers = localStorage.getItem("users")
     updateUser,
     favorites,
     addFavorites,
-    deleteFavorites
+    deleteFavorites,
+    getProduct,
+    createProduct,
+    deleteProduct,
+    updateProduct
   };
   return (
     <Context.Provider value={globalState}> {children} </Context.Provider>
   )
 }
+
+export default Provider;
