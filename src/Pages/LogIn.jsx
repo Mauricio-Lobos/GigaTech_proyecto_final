@@ -15,7 +15,6 @@ export default function Login() {
         e.preventDefault();
         const user = await login(email, password);
         if (user) {
-            console.log(user)
             setEmail("");
             setPassword("");
             return navigate("/");

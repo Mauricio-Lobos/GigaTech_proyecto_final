@@ -32,3 +32,26 @@
 .description p{
     padding-left: 10px;
 }
+
+@media (max-width:768px){
+    .div-footer{
+        flex-direction: column;
+       
+    }
+
+    .description{
+        display: flex;
+        align-items: center;
+        width:100%; 
+        padding-bottom: 10px;
+        border-bottom: solid 1px black;
+    }
+
+    .contact{
+        border-bottom: solid 1px black;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}

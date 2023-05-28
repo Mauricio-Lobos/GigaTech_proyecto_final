@@ -33,9 +33,7 @@ export default function RegisterUser() {
       password,
       id: Date.now(),
     });
-    console.log('register: ', user);
     if (user) {
-      console.log(user);
       return Swal.fire({
         icon: "error",
         title: "¡Hubo un problema!",
