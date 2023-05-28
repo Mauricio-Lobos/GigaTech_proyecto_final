@@ -50,7 +50,6 @@ export default function PostAndUpdateProducts() {
 
     if (id) {
       updateProduct(newProduct);
-      console.log(newProduct);
       return Swal.fire({
         icon: "success",
         title: "¡Producto actualizado exitosamente!",
@@ -71,7 +70,6 @@ export default function PostAndUpdateProducts() {
 
     } else {
       createProduct(newProduct);
-      console.log(newProduct);
       return Swal.fire({
         icon: "success",
         title: "¡Producto creado exitosamente!",
