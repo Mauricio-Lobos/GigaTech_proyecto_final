@@ -147,10 +147,12 @@ const initialStateUsers = localStorage.getItem("users")
 
   const updateUser = (user) => {
     setUser(user);
-    const usersUpdate = users.map((item) =>
-      item.id === user.id ? user : item
-    );
-    setUsers(usersUpdate);
+    if (users) {
+      const usersUpdate = users.map((item) =>
+        item.id === user.id ? user : item
+      );
+      setUsers(usersUpdate);
+    }
   };
 
   useEffect(() => {
