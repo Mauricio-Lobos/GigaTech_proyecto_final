@@ -58,7 +58,7 @@ export default function Login() {
                     <Button type="submit" variant="success" onClick={handleSubmit}>
                         Ingresar
                     </Button>
-                    <div>
+                    <div className="validates-data">
                         <p>¿Aún no tienes una cuenta GigaTech? </p>
                         <Link to="/registerUser">
                             <Button type="submit" variant="success">

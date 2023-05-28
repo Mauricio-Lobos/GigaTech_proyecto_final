@@ -2,6 +2,7 @@ import Button from "react-bootstrap/esm/Button"
 import "../Style/Favorites.css"
 import { Context } from "../Context/Provider";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 export default function Favorites() {
     const { favorites, deleteFavorites } = useContext(Context);
@@ -15,14 +16,19 @@ export default function Favorites() {
                         {favorites.map((item) => (
                             <article key={item.id}>
 
-                                <div className="object-favorites">
-                                    <p>{item.title}</p>
+                                <div className="favorites">
                                     <img src={item.img} alt="" />
-                                    <Button onClick={() => deleteFavorites(item.id)}>Eliminar</Button>
+                                    <p>{item.name}</p>
+                                    <div className="btns-favorites">
+                                        <Link to={`/product/${item.id}`}>
+                                            <Button id="btn-details-favorites" variant="primary"> Ver detalles</Button>
+                                        </Link>
+                                        <Button id="btn-favorites" variant="warning" onClick={() => deleteFavorites(item.id)}>Eliminar</Button>
+                                    </div>
                                 </div>
                             </article>
                         ))}
-                        {favorites.length === 0 && <p>No existen favoritos</p>}  
+                        {favorites.length === 0 && <p>No existen favoritos</p>}
                     </div>
                 </div>
             </div>

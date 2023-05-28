@@ -19,7 +19,11 @@ export default function RegisterUser() {
     e.preventDefault();
 
     if (password !== repassword) {
-      return alert("no coinciden las contraseñas");
+      return Swal.fire({
+        icon: "error",
+        title: "Contraseñas no coinciden",
+        text: "Verifique que las dos contraseñas sean iguales.",
+      });
     }
 
     const user = register({
@@ -34,14 +38,13 @@ export default function RegisterUser() {
       console.log(user);
       return Swal.fire({
         icon: "error",
-        title: "Oops...",
+        title: "¡Hubo un problema!",
         text: "El email ya está registrado",
       });
     }
     return Swal.fire({
       icon: "success",
-      title: "Usuario registrado",
-      text: "Serás redirigido a la ventana principal",
+      title: "¡Usuario registrado exitosamente!",
       confirmButtonText: "Confirmar"
     }).then(result => {
       if (result.isConfirmed) {

@@ -27,7 +27,7 @@ export default function Home() {
             <main>
                 <form className="search" action="" onSubmit={datesValidation}>
                     <Form.Select aria-label="Default select example" onChange={handleSortChange}>
-                        <option>-- Ordenar por --</option>
+                        <option value="id">-- Ordenar por defecto --</option>
                         <option value="price-lowest">Precio menor a mayor</option>
                         <option value="price-highest">Precio mayor a menor</option>
                     </Form.Select>

@@ -4,16 +4,57 @@
 }
 .favorites-contain{
     padding: 10px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
+    overflow-y: scroll;
+    max-height: 80%;
 }
+
 .object-favorites{
     display: flex;
     flex-direction: column;
-    align-items: center;
     border: solid 1px black;
     padding: 5px;
-    background-color: rgba(255, 255, 255, 0.911);
+    color: rgba(255, 255, 255, 0.911);
+    background-color: #6c07aa77;
+}
+
+.favorites{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid black 1px;
+}
+
+.favorites img{
+    width:100px;
+}
+
+.btns-favorites{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    margin-right: 10px;
+}
+
+
+@media (max-width:578px){
+    .favorites{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid black 1px;
+    }
+    
+    .favorites img{
+        width:100px;
+    }
+    
+    #btn-favorites{
+        width: 100%;
+    }
+    #btn-details-favorites{
+        width: 100%;
+    }
+    
 }
