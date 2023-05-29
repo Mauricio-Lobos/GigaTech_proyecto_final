@@ -111,16 +111,21 @@ const initialStateUsers = localStorage.getItem("users")
 
   // ---- User configuration ----
   const getUsers = async () => {
-    const res = await fetch("users.json");
-    const users = await res.json();
-    return users;
+    const response = await fetch("users.json");
+    const jsonUsers = await response.json();
+    const localStorageUsers = localStorage.getItem("users");
+    const parsedLocalStorageUsers = localStorageUsers ? JSON.parse(localStorageUsers) : [];
+
+    const combinedUsers = Array.isArray(parsedLocalStorageUsers)
+      ? [...jsonUsers, ...parsedLocalStorageUsers]
+      : jsonUsers;
+  
+    return combinedUsers;
   };
 
   const login = async (email, password) => {
     const users = await getUsers();
-    const userDB = users.find(
-      (item) => item.email === email && password === item.password
-    );
+    const userDB = users.find((item) => item.email === email && item.password === password);
     if (userDB) {
       setUser(userDB);
       localStorage.setItem("user", JSON.stringify(userDB));
@@ -128,21 +133,25 @@ const initialStateUsers = localStorage.getItem("users")
       setUser(null);
       localStorage.removeItem("user");
     }
-
     return userDB;
   };
-
+  
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");
   };
 
   const register = (user) => {
-    const userDB = users.find((item) => item.email === user.email);
+    const userDB = Array.isArray(users) ? users.find((item) => item.email === user.email) : null;
     if (userDB) return userDB;
-    setUser(user);
+
     localStorage.setItem("user", JSON.stringify(user));
-    setUsers([...users, user]);
+
+    setUser(user);
+    setUsers((prevUsers) => {
+      const updatedUsers = Array.isArray(prevUsers) ? [...prevUsers, user] : [user];
+      return updatedUsers;
+    });
   };
 
   const updateUser = (user) => {

@@ -51,7 +51,7 @@ export default function Login() {
                     </div>
                     {showError && (
                         <div className="error-message">
-                            <p>Credenciales incorrectas, intente nuevamente.</p>
+                            <p className="error-credencial">Credenciales incorrectas, intente nuevamente.</p>
                         </div>
                     )}
                     <Button type="submit" variant="success" onClick={handleSubmit}>
