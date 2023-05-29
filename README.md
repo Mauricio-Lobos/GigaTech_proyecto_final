@@ -21,4 +21,4 @@ Proyecto final - MarketPlace-GigaTech
 
 ## 🔗 Links
 
-[![linkedin](https://www.linkedin.com/in/mauricio-lobos-figueroa-9a0130248/)
+![linkedin](https://www.linkedin.com/in/mauricio-lobos-figueroa-9a0130248/)
