@@ -8,6 +8,7 @@
     color: white;
     border-radius: 10px;
     align-items: center;
+    width: 100%;
 }
 .body-card{
     display: flex;
