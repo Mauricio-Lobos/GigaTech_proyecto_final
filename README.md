@@ -4,10 +4,10 @@ Proyecto final - MarketPlace-GigaTech
 
 ## 💡 Tecnologias
 
--⚛️ React
--⚛️ React Router
--🅱️ React Bootstrap
--▲ Versel
+- ⚛️ React
+- ⚛️ React Router
+- 🅱️ React Bootstrap
+- ▲ Vercel
 
 ## 🛠 Funcionalidades
 
