@@ -60,7 +60,7 @@ export default function RegisterUser() {
             <h3>Registrarse</h3>
             <hr />
           </div>
-          <Form onSubmit={handleSubmit}>
+          <Form className="inputs-register" onSubmit={handleSubmit}>
             <div className='email-password'>
               <p>Correo electrónico</p>
               <Form.Control type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Ingrese su Email" name="email" required />
@@ -83,7 +83,7 @@ export default function RegisterUser() {
                 <Form.Control type="text" onChange={(e) => setLastname(e.target.value)} placeholder="Ingrese su apellido" name="lastName" required />
               </div>
             </div>
-            <Button type='submit' variant='success'>Registrarse</Button>
+            <Button id="btn-register" type='submit' variant='success'>Registrarse</Button>
           </Form>
         </div>
       </div>
