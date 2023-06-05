@@ -7,6 +7,7 @@ Proyecto final - MarketPlace-GigaTech
 - ⚛️ React
 - ⚛️ React Router
 - 🅱️ React Bootstrap
+- 🍩 Sweet Alert 2
 - ▲ Vercel
 
 ## 🛠 Funcionalidades
