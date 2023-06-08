@@ -1,6 +1,7 @@
 # 💻 GigaTech
 Proyecto final - MarketPlace-GigaTech
 ## Click in [Deploy](https://giga-tech-proyecto-final.vercel.app/ "GigaTech")
+## Video de YouTube [Aquí](https://youtu.be/JvuA8TYGdzY "Video de Youtube")
 
 ## 💡 Tecnologias
 
